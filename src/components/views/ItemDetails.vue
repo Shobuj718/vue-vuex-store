@@ -7,7 +7,12 @@
 		<div class="col-sm-6">
 			<h2>{{ item.title }}</h2>
 			<p>{{ item.description }}</p>
-			<p>${{ item.price }}</p>
+
+			<div class="card-footer">
+				<span>${{ item.price }}</span>
+				<button @click="addToCart(item)" class="btn btn-sm btn-primary float-right"> + Add</button>
+			</div>
+
 		</div>
 	</div>
 	<h2 v-else="item">Loading</h2>
@@ -31,6 +36,9 @@
 					self.item = res.data
 					console.log(res.data)
 				})
+			},
+			addToCart(item) {
+				this.$store.commit('addToCart', item)
 			}
 		}
 	}

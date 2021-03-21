@@ -31,8 +31,10 @@
 		methods: {
 			search() {
 				//this.$emit('search', this.keyword)
+				var self = this
 				axios.get('http://localhost:3000/search/' + this.keyword).then(response => {
 					console.log(response.data)
+					self.$store.commit('setInventory', response.data)
 				})
 			}
 		}

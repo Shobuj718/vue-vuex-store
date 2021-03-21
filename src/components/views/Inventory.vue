@@ -31,21 +31,30 @@
 		data(){
 			return {
 				loading: true,
-				items: []
 			}
 		},
+
+		computed: {
+			items(){
+				return this.$store.getters.getInventory
+			}
+		},
+
 		mounted() {
 			this.fetchInventory()
 		},
+		
 		methods: {
 			addToCart(item) {
-				this.$emit('newItemAdded', item)
+				//this.$emit('newItemAdded', item)
+				this.$store.commit('addToCart', item)
 			},
 			fetchInventory() {
 				var self = this
 				axios.get('http://localhost:3000/items').then(res => {
 					setTimeout(function() {
-						self.items = res.data
+						//self.items = res.data
+						self.$store.commit('setInventory', res.data)
 						self.loading = false
 					}, 2000)
 
