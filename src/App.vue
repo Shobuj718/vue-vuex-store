@@ -1,13 +1,14 @@
 <template>
     <div id="app">
-    
+      
+        
         <navbar @search="search"></navbar>
 
         <div class="container">
             <div class="row">
                 <div class="col-sm-9">
-            
-                    <inventory @newItemAdded="addCartItem" :items="items"></inventory>
+                    <router-view></router-view>
+                    
 
                 </div>
 
@@ -16,15 +17,17 @@
                 </div>
 
             </div>
-
         </div>
+    
+
+
     </div>
 </template>
 
 <script>
 
 import Navbar from './components/Navbar'
-import Inventory from './components/Inventory'
+//import Inventory from './components/Inventory'
 import Cart from './components/Cart'
 import data from './data.js'
 
@@ -32,7 +35,7 @@ export default {
     
     components: {
         Navbar,
-        Inventory,
+        //Inventory,
         Cart
     },
 
