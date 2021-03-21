@@ -38,7 +38,8 @@
 				})
 			},
 			addToCart(item) {
-				this.$store.commit('addToCart', item)
+				//this.$store.commit('addToCart', item)
+				this.$store.dispatch('addToCart', item)
 			}
 		}
 	}

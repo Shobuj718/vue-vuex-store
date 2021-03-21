@@ -25,5 +25,10 @@ export const  storage = {
 		clearCart(state){
 			state.cart = []
 		}
+	},
+	actions: {
+		addToCart(context, payload){
+			context.commit('addToCart', payload)
+		}
 	}
 }
